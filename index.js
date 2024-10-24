@@ -9,16 +9,10 @@ app.use(json({limit:"10mb"}))
 app.use(urlencoded({extended:true,limit:"10mb"}))
 app.use(cors({ origin:"http://localhost:3000",credentials:true}))
 app.use(cookieSession({
-    name:"session",
-    secret: "your_secret_key",
-    resave: false,
-    saveUninitialized: false,
-    cookie:{
-        maxAge: 1000 * 60 * 30,
-        secure: true, 
-        sameSite: true
-    },
-     rolling: true,
+    name: "session",
+    keys: [`agjhcgajkagdjkfd aghsdjkfgaf`],
+    maxAge: 24 * 7 * 3600000,
+    secure: config.NODE_ENV !== 'developement'
 }))
 
 
