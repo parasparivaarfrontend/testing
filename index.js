@@ -12,7 +12,7 @@ app.use(cookieSession({
     name: "session",
     keys: [`agjhcgajkagdjkfd aghsdjkfgaf`],
     maxAge: 24 * 7 * 3600000,
-    secure: config.NODE_ENV !== 'developement'
+    secure: process.env.config !== 'developement'
 }))
 
 
