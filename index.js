@@ -16,6 +16,6 @@ app.listen(4000,()=>{
 
 app.get("/test",(_req,res)=>{
     res.cookie("token", "test", {
-        secure: false, expires: new Date(Date.now() + 1000 * 60 * 60), sameSite: "None",maxAge:1000*60*60 })
+        secure: true, expires: new Date(Date.now() + 1000 * 60 * 2), sameSite: "None", maxAge: 1000 * 60 * 2, path: "/" })
     res.send("done")
 })
