@@ -1,5 +1,6 @@
 import express, { json, urlencoded } from "express";
 import cors from "cors";
+import cookieSession from "cookie-session";
 
 
 const app = express();
@@ -7,6 +8,18 @@ const app = express();
 app.use(json({limit:"10mb"}))
 app.use(urlencoded({extended:true,limit:"10mb"}))
 app.use(cors({ origin:"http://localhost:3000",credentials:true}))
+app.use(cookieSession({
+    name:"session",
+    secret: "your_secret_key",
+    resave: false,
+    saveUninitialized: false,
+    cookie:{
+        maxAge: 1000 * 60 * 30,
+        secure: true, 
+        sameSite: true
+    },
+     rolling: true,
+}))
 
 
 app.listen(4000,()=>{
