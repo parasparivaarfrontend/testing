@@ -9,13 +9,13 @@ app.use(urlencoded({extended:true,limit:"10mb"}))
 app.use(cors({ origin:"http://localhost:3000",credentials:true}))
 
 
-app.listen(3000,()=>{
+app.listen(4000,()=>{
     console.log("start server on port 3000")
 })
 
 
 app.get("/test",(_req,res)=>{
     res.cookie("token", "test", {
-        secure: true, expires: new Date(Date.now() + 1000 * 60 * 60), sameSite: "Strict" })
+        secure: true, expires: new Date(Date.now() + 1000 * 60 * 60), sameSite: "None" })
     res.send("done")
 })
